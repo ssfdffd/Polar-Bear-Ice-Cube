@@ -1,0 +1,409 @@
+:root {
+    --primary-blue: #0096e6;
+    --accent-green: #79f299;
+    --bg-light: #f0faff;
+    --text-navy: #0a3d62;
+    --white: #ffffff;
+}
+
+/* Custom properties for easy theme changes */
+:root {
+    --primary-color: #007ACC; /* Deep Ice Blue */
+    --secondary-color: #00AEEF; /* Lighter Sky Blue */
+    --text-color: #333;
+    --light-text-color: #FFF;
+    --accent-color: #79f299; /* Bright Lime Green (NEW COLOR) */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+/* Base Styles & Typography */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; 
+    color: var(--text-color);
+    background-color: #F8F8F8; 
+}
+
+/* --- Navbar & Header --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 6px var(--shadow-color);
+    transition: all var(--transition-speed) ease;
+    width: 100%;
+}
+
+/* Sticky Navbar Effect */
+.navbar.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(0, 122, 204, 0.95); 
+    padding: 10px 5%;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    animation: fadeInDown 0.6s ease-out; 
+}
+
+.logo-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.company-name {
+    color: var(--light-text-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Nav Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: var(--light-text-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 15px;
+    margin: 0 5px;
+    position: relative;
+    transition: color var(--transition-speed) ease;
+}
+
+/* Underline Animation Effect - Uses NEW COLOR */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--accent-color);
+    transition: width var(--transition-speed) ease, right var(--transition-speed) ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    right: auto;
+    left: 0;
+}
+
+/* Hover color change - Uses NEW COLOR */
+.nav-link:hover {
+    color: var(--accent-color);
+}
+/* Hero Section */
+.gallery-hero {
+    text-align: center;
+    padding: 60px 5%;
+    background: linear-gradient(rgba(0,150,230,0.1), rgba(0,150,230,0.05));
+}
+
+.gallery-hero h1 { font-size: 2.5rem; color: var(--primary-blue); }
+
+/* Gallery Layout */
+.gallery-container { padding: 20px 5% 80px; }
+
+.category-section {
+    margin-bottom: 60px;
+}
+
+.category-header {
+    margin-bottom: 25px;
+    border-left: 5px solid var(--accent-green);
+    padding-left: 15px;
+}
+
+.category-header h2 { color: var(--primary-blue); margin-bottom: 5px; }
+
+/* DYNAMIC GRID - SQUARE IMAGES */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.img-box {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* FORCES SQUARE */
+    overflow: hidden;
+    border-radius: 15px;
+    border: 3px solid var(--white);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+/* Slick Hover Effect */
+.img-box:hover {
+    transform: scale(1.03) rotate(1deg);
+    border-color: var(--accent-green);
+    box-shadow: 0 12px 30px rgba(121, 242, 153, 0.3);
+}
+
+.img-box:hover img {
+    transform: scale(1.1);
+}
+
+/* Scroll Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* --- Footer --- */
+.main-footer {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 40px 5%;
+    text-align: center;
+}
+
+.footer-content-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+}
+
+.contact-info, .social-media-links {
+    margin: 20px;
+    min-width: 250px;
+}
+
+/* Footer Headings - Uses NEW COLOR */
+.contact-info h3, .social-media-links h3 {
+    color: var(--accent-color); /* NEW COLOR */
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+/* Contact List Item Hover - Uses NEW COLOR */
+.contact-list li {
+    padding: 8px 0;
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.contact-list li:hover {
+    color: var(--accent-color); /* NEW COLOR */
+    transform: translateX(5px);
+}
+
+/* Contact Icon Color - Uses NEW COLOR */
+.contact-list li i {
+    margin-right: 10px;
+    color: var(--accent-color); /* NEW COLOR */
+}
+
+.social-icons a {
+    color: var(--light-text-color);
+    font-size: 2rem;
+    margin: 0 15px;
+    transition: color var(--transition-speed) ease, transform 0.2s ease;
+}
+
+/* Social Media Icon Hover - Uses NEW COLOR */
+.social-icons a:hover {
+    color: var(--accent-color); /* NEW COLOR */
+    transform: scale(1.3) rotate(5deg);
+}
+
+.copyright {
+    opacity: 0.8;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* --- Keyframe Animations --- */
+
+@keyframes backgroundPan {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Applying the fadeInUp animation with staggered delay */
+.animate-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0; 
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+/* --- Mobile Responsiveness (Ensuring Structure and Functionality) --- */
+@media (max-width: 900px) {
+    /* Navbar Adjustment for Mobile Stack */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 3%; /* Reduced padding for smaller screens */
+    }
+
+    .logo-container {
+        margin-bottom: 15px;
+    }
+
+    /* Navigation links take full width and stack */
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separator for stacked links */
+    }
+
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+
+    /* Motto and Search adjustments */
+    .search-and-motto {
+        width: 100%;
+        justify-content: space-between;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .motto {
+        margin-right: 10px;
+        font-size: 0.8rem;
+    }
+    
+    /* Ensure search box is usable on mobile */
+    .search-box, .search-box:hover .search-input {
+        width: auto;
+        max-width: 150px;
+    }
+    
+    .search-input {
+        width: 120px; /* Always visible on mobile for easier tapping */
+        padding-left: 5px;
+    }
+
+
+    /* Hero Section adjustments */
+    .hero-section {
+        height: 60vh; /* Shorter on mobile */
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    /* Footer adjustments for stacking */
+    .footer-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-info, .social-media-links {
+        width: 100%;
+        text-align: center;
+        margin: 15px 0;
+    }
+    
+    .contact-list {
+        text-align: center; /* Center list items for better mobile flow */
+    }
+
+    .contact-list li {
+        padding: 5px 0;
+    }
+}

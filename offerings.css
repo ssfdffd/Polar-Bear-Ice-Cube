@@ -1,0 +1,291 @@
+/* =========================================
+   1. CORE COLORS & VARIABLES
+   ========================================= */
+:root {
+    --primary-blue: #0096e6;     /* Sky Blue for Navbar/Footer */
+    --accent-green: #79f299;     /* Signature Lime Green */
+    --bg-light-blue: #f0faff;    /* Light Icy Background */
+    --text-navy: #0a3d62;        /* Dark Navy for Text Visibility */
+    --white: #ffffff;
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(180deg, var(--bg-light-blue) 0%, #ffffff 100%);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-navy); /* Ensures text is visible on light bg */
+    line-height: 1.6;
+}
+
+/* =========================================
+   2. NAVBAR (Lighter Blue)
+   ========================================= */
+.main-header {
+    background-color: var(--primary-blue);
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 5%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    margin-right: 12px;
+    border: 2px solid var(--accent-green);
+}
+
+.company-name {
+    color: var(--white);
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--accent-green);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0; height: 2px;
+    background: var(--accent-green);
+    bottom: -2px; left: 0;
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+.motto {
+    color: var(--white);
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* =========================================
+   3. HERO SECTION
+   ========================================= */
+.offer-hero {
+    height: 35vh;
+    background: linear-gradient(rgba(0, 150, 230, 0.4), rgba(0, 150, 230, 0.4)), 
+                url('front.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+}
+
+.offer-hero h1 {
+    font-size: 2.8rem;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+   4. PRODUCT GRID & SQUARE IMAGES
+   ========================================= */
+.products-section {
+    padding: 60px 5%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--primary-blue);
+    margin-bottom: 40px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 150, 230, 0.1);
+    transition: transform 0.3s ease;
+    border: 1px solid #e1f0ff;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-green);
+}
+
+/* SQUARE FIX */
+.shape-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.ice-shape img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    color: var(--text-navy);
+    margin-bottom: 8px;
+}
+
+.price-text {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-weight: 700;
+    display: inline-block;
+}
+
+/* =========================================
+   5. VALUE SECTION (Visible Content)
+   ========================================= */
+.value-section {
+    padding: 60px 5%;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.value-flex {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.value-item {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+}
+
+.value-shape {
+    width: 100%;
+    max-width: 250px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 4px solid var(--white);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.value-shape img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================================
+   6. VISIBILITY & ANIMATION FIX
+   ========================================= */
+/* Elements are visible by default now */
+.reveal-item, .reveal-left, .reveal-right {
+    opacity: 1; 
+    transform: none;
+}
+
+/* If the JS runs, it can still add a smooth entry */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-up {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+.main-footer {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 40px 5% 20px;
+    text-align: center;
+    border-top: 4px solid var(--accent-green);
+}
+
+.footer-content-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.contact-info h3, .social-media-links h3 {
+    color: var(--accent-green);
+    margin-bottom: 15px;
+}
+
+.contact-list {
+    list-style: none;
+    text-align: left;
+}
+
+.contact-list i {
+    color: var(--accent-green);
+    margin-right: 8px;
+}
+
+.social-icons a {
+    color: var(--white);
+    font-size: 1.8rem;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--accent-green);
+}
+
+.copyright {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+    padding-top: 20px;
+    font-size: 0.8rem;
+}
