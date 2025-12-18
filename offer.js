@@ -1,29 +1,49 @@
-/**
- * UI CORE SCRIPT
- * Handles Navbar, Search, and Mobile Interactions
- */
-
 document.addEventListener('DOMContentLoaded', () => {
-    const navbar = document.querySelector('.navbar');
-    const searchInput = document.querySelector('.search-input');
-    const navLinks = document.querySelector('.nav-links');
-    
-    // 1. STICKY NAVBAR
-    // Adds a 'sticky' class when you scroll down, making the bar blur/shrink
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    const backToTopBtn = document.getElementById('backToTop');
+
+    // 1. Hamburger Toggle
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            const icon = hamburger.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+    }
+
+    // 2. Scroll Events
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('sticky');
+        // Back to Top Visibility
+        if (window.scrollY > 400) {
+            backToTopBtn.style.display = "block";
         } else {
-            navbar.classList.remove('sticky');
+            backToTopBtn.style.display = "none";
         }
     });
 
-    // 3. MOBILE HAMBURGER MENU (If you add a button with id "hamburger")
-    const hamburger = document.getElementById('hamburger');
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('open');
+    // 3. Back to Top Action
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // 4. Intersection Observer for Scroll Animations
+    const itemsToReveal = document.querySelectorAll('.reveal-item, .reveal-left, .reveal-right');
+    
+    const revealOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
+            }
         });
-    }
+    }, revealOptions);
+
+    itemsToReveal.forEach(item => revealObserver.observe(item));
 });
