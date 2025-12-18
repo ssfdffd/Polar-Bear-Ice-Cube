@@ -210,221 +210,86 @@ body {
     }
 }
 
-/* --- Footer --- */
+/* ===== FOOTER FIX ===== */
 .main-footer {
     background-color: var(--primary-color);
-    color: var(--light-text-color);
-    padding: 40px 5%;
-    text-align: center;
+    color: white;
+    padding: 50px 5% 30px;
+    margin-top: 0;
 }
 
 .footer-content-wrapper {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 40px;
     flex-wrap: wrap;
     max-width: 1200px;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 30px;
 }
 
-.contact-info, .social-media-links {
-    margin: 20px;
+.contact-info,
+.social-media-links {
+    flex: 1;
     min-width: 250px;
 }
 
-/* Footer Headings - Uses NEW COLOR */
-.contact-info h3, .social-media-links h3 {
-    color: var(--accent-color); /* NEW COLOR */
-    margin-top: 0;
-    font-size: 1.5rem;
+.main-footer h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
 }
 
 .contact-list {
     list-style: none;
     padding: 0;
-    text-align: left;
+    margin: 0;
 }
 
-/* Contact List Item Hover - Uses NEW COLOR */
 .contact-list li {
-    padding: 8px 0;
-    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
 }
 
-.contact-list li:hover {
-    color: var(--accent-color); /* NEW COLOR */
-    transform: translateX(5px);
-}
-
-/* Contact Icon Color - Uses NEW COLOR */
-.contact-list li i {
+.contact-list i {
     margin-right: 10px;
-    color: var(--accent-color); /* NEW COLOR */
+    color: var(--accent-color);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
 }
 
 .social-icons a {
-    color: var(--light-text-color);
-    font-size: 2rem;
-    margin: 0 15px;
-    transition: color var(--transition-speed) ease, transform 0.2s ease;
+    color: white;
+    font-size: 1.6rem;
+    transition: transform 0.3s, color 0.3s;
 }
 
-/* Social Media Icon Hover - Uses NEW COLOR */
 .social-icons a:hover {
-    color: var(--accent-color); /* NEW COLOR */
-    transform: scale(1.3) rotate(5deg);
+    color: var(--accent-color);
+    transform: translateY(-3px);
 }
 
-.copyright {
-    opacity: 0.8;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    padding-top: 20px;
-    margin-top: 20px;
-    font-size: 0.9rem;
+.main-footer .copyright {
+    text-align: center;
+    font-size: 0.85rem;
+    opacity: 0.85;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 15px;
 }
 
-/* --- Keyframe Animations --- */
-
-@keyframes backgroundPan {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Applying the fadeInUp animation with staggered delay */
-.animate-up {
-    animation: fadeInUp 0.8s ease-out forwards;
-    opacity: 0; 
-}
-
-.delay-1 {
-    animation-delay: 0.2s;
-}
-
-.delay-2 {
-    animation-delay: 0.4s;
-}
-
-/* --- Mobile Responsiveness (Ensuring Structure and Functionality) --- */
-@media (max-width: 900px) {
-    /* Navbar Adjustment for Mobile Stack */
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 15px 3%; /* Reduced padding for smaller screens */
-    }
-
-    .logo-container {
-        margin-bottom: 15px;
-    }
-
-    /* Navigation links take full width and stack */
-    .nav-links {
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        margin-bottom: 15px;
-    }
-
-    .nav-links li {
-        width: 100%;
-    }
-
-    .nav-link {
-        display: block;
-        padding: 10px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separator for stacked links */
-    }
-
-    .nav-link:last-child {
-        border-bottom: none;
-    }
-
-    /* Motto and Search adjustments */
-    .search-and-motto {
-        width: 100%;
-        justify-content: space-between;
-        padding-top: 10px;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .motto {
-        margin-right: 10px;
-        font-size: 0.8rem;
-    }
-    
-    /* Ensure search box is usable on mobile */
-    .search-box, .search-box:hover .search-input {
-        width: auto;
-        max-width: 150px;
-    }
-    
-    .search-input {
-        width: 120px; /* Always visible on mobile for easier tapping */
-        padding-left: 5px;
-    }
-
-
-    /* Hero Section adjustments */
-    .hero-section {
-        height: 60vh; /* Shorter on mobile */
-    }
-    
-    .hero-content h2 {
-        font-size: 2rem;
-    }
-    
-    .hero-content p {
-        font-size: 1rem;
-    }
-    
-    .cta-button {
-        padding: 12px 25px;
-        font-size: 1rem;
-    }
-
-    /* Footer adjustments for stacking */
+/* Mobile footer */
+@media (max-width: 768px) {
     .footer-content-wrapper {
         flex-direction: column;
-        align-items: center;
-    }
-    
-    .contact-info, .social-media-links {
-        width: 100%;
         text-align: center;
-        margin: 15px 0;
     }
-    
+
+    .social-icons {
+        justify-content: center;
+    }
+
     .contact-list {
-        text-align: center; /* Center list items for better mobile flow */
+        text-align: center;
     }
-
-    .contact-list li {
-        padding: 5px 0;
-    }
-    }
-
+}
