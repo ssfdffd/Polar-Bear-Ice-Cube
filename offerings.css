@@ -4,6 +4,111 @@
     --accent-color: #79f299;
 }
 /* ===== NAVBAR LOGO FIX (GLOBAL CONSISTENCY) ===== */
+/* ===== GLOBAL NAVBAR BASE (DESKTOP FIRST) ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.company-name {
+    font-size: 1.4rem;
+    color: white;
+    margin: 0;
+    text-decoration: none;
+}
+
+/* NAV LINKS — DESKTOP */
+.nav-links {
+    display: flex;
+    list-style: none;        /* 🔥 removes bullets */
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;   /* 🔥 removes underline */
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent-color);
+}
+
+/* HAMBURGER — HIDDEN ON DESKTOP */
+.hamburger {
+    display: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* MOTTO */
+.search-and-motto {
+    display: flex;
+    align-items: center;
+}
+
+.motto {
+    color: white;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+@media (max-width: 900px) {
+
+    .hamburger {
+        display: block;
+    }
+
+    .search-and-motto {
+        display: none;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--primary-color);
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+    }
+
+    .nav-links.open {
+        max-height: 500px; /* enough for all links */
+    }
+
+    .nav-link {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+}
+
 .logo-container {
     display: flex;
     align-items: center;
@@ -276,5 +381,6 @@
         justify-content: center;
     }
 }
+
 
 
