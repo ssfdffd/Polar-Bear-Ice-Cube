@@ -6,7 +6,6 @@
     <title>About Us - Polar Bear Ice Cube</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="about.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -15,8 +14,12 @@
 <header class="main-header">
     <nav class="navbar" id="main-navbar">
         <div class="logo-container">
-            <img href="Homepage.html" src="ice.jpg" alt="Polar Bear Ice Cube Logo" class="logo-img">
-             <a href="index.html"> <h1 class="company-name">Polar Bear Ice Cube</h1></a>
+            <img src="ice.jpg" alt="Polar Bear Ice Cube Logo" class="logo-img">
+            <a href="index.html"><h1 class="company-name">Polar Bear Ice Cube</h1></a>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
         </div>
 
         <ul class="nav-links" id="nav-links">
@@ -27,10 +30,6 @@
 
         <div class="search-and-motto">
             <p class="motto">Chill, Relax With The Bear</p>
-          <!--  <div class="search-box">
-                <input type="text" placeholder="Search..." class="search-input">
-                <i class="fas fa-search search-icon"></i>-->
-            </div>
         </div>
     </nav>
 </header>
@@ -44,7 +43,6 @@
 </section>
 
 <main class="content-wrapper">
-
     <section class="founder-section reveal-element">
         <h2 class="section-title">Meet the Founders</h2>
 
@@ -72,34 +70,33 @@
     </section>
 
     <section class="quality-section">
-    <h2 class="section-title">The Ice Cube Journey</h2>
+        <h2 class="section-title">The Ice Cube Journey</h2>
+        <div class="timeline-container">
+            <div class="timeline-item reveal-item">
+                <div class="step-circle" style="background-color: var(--primary-color);">1</div>
+                <div class="timeline-content">
+                    <h3 class="step-title">Purest Water Source</h3>
+                    <p class="step-description">Advanced ice-making machines ensure clean starting water.</p>
+                </div>
+            </div>
 
-    <div class="timeline-container">
-        <div class="timeline-item reveal-item">
-            <div class="step-circle" style="background-color: var(--primary-color);">1</div>
-            <div class="timeline-content">
-                <h3 class="step-title">Purest Water Source</h3>
-                <p class="step-description">Advanced ice-making machines ensure clean starting water.</p>
+            <div class="timeline-item reveal-item">
+                <div class="step-circle" style="background-color: #6c757d;">2</div>
+                <div class="timeline-content">
+                    <h3 class="step-title">Advanced Technology</h3>
+                    <p class="step-description">Controlled freezing eliminates air and impurities for clear ice.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal-item">
+                <div class="step-circle" style="background-color: var(--accent-color);">3</div>
+                <div class="timeline-content">
+                    <h3 class="step-title">Safety Sealing</h3>
+                    <p class="step-description">Double-sealed packaging ensures hygiene and freshness.</p>
+                </div>
             </div>
         </div>
-
-        <div class="timeline-item reveal-item">
-            <div class="step-circle" style="background-color: #6c757d;">2</div>
-            <div class="timeline-content">
-                <h3 class="step-title">Advanced Technology</h3>
-                <p class="step-description">Controlled freezing eliminates air and impurities for clear ice.</p>
-            </div>
-        </div>
-
-        <div class="timeline-item reveal-item">
-            <div class="step-circle" style="background-color: var(--accent-color);">3</div>
-            <div class="timeline-content">
-                <h3 class="step-title">Safety Sealing</h3>
-                <p class="step-description">Double-sealed packaging ensures hygiene and freshness.</p>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 </main>
 
 <footer class="main-footer">
@@ -125,7 +122,8 @@
     <p class="copyright">&copy; 2025 Polar Bear Ice Cube. All rights reserved.</p>
 </footer>
 
-<script src="script.js"></script>
+<button id="backToTop" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
 <script src="about.js"></script>
 </body>
 </html>
