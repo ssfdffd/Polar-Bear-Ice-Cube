@@ -6,14 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTopBtn = document.getElementById('backToTop');
 
     // 2. MOBILE MENU TOGGLE
-    // This handles the sliding menu and changes the icon to an "X" when open
+    // Opens/closes the menu and swaps the bars icon for an "X"
     if (hamburger) {
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('open');
             
-            // Toggle between the "bars" icon and the "X" (times) icon
             const icon = hamburger.querySelector('i');
             if (icon) {
+                // Toggles between FontAwesome 'bars' and 'times' (X)
                 icon.classList.toggle('fa-bars');
                 icon.classList.toggle('fa-times');
             }
@@ -24,15 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const scrollValue = window.scrollY;
 
-        // Sticky Navbar: Adds 'sticky' class after scrolling 50px
+        // Sticky Navbar Logic: Triggered after 50px of scrolling
         if (navbar) {
-            navbar.classList.toggle('sticky', scrollValue > 50);
+            if (scrollValue > 50) {
+                navbar.classList.add('sticky');
+            } else {
+                navbar.classList.remove('sticky');
+            }
         }
 
-        // Back to Top Button: Becomes visible after scrolling 300px
+        // Back to Top Button Visibility: Triggered after 300px
         if (backToTopBtn) {
             if (scrollValue > 300) {
-                backToTopBtn.style.display = "flex"; // Using flex to keep icon centered
+                backToTopBtn.style.display = "block";
             } else {
                 backToTopBtn.style.display = "none";
             }
@@ -50,21 +54,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 5. REVEAL ANIMATIONS ON SCROLL (Intersection Observer)
-    // This looks for your specific animation classes and adds 'revealed' when they enter the screen
+    // This looks for all elements with reveal classes and adds 'revealed' 
+    // when they enter the user's viewport.
     const itemsToAnimate = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-item, .reveal-element');
 
     const observerOptions = {
-        root: null, // use the viewport
-        threshold: 0.15, // trigger when 15% of the element is visible
-        rootMargin: "0px 0px -50px 0px" // triggers slightly before the element reaches the bottom
+        root: null, // Relative to the browser viewport
+        threshold: 0.15, // Trigger when 15% of the element is visible
+        rootMargin: "0px 0px -50px 0px" // Trigger slightly before it hits the bottom
     };
 
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('revealed');
-                // Once it has revealed, we stop observing it (animation happens only once)
+                // Stop observing once animated to save browser resources
                 observer.unobserve(entry.target);
             }
         });
-    }, observerOptions
+    }, observerOptions);
+
+    itemsToAnimate.forEach(item => {
+        revealObserver.observe(item);
+    });
+
+    // 6. AUTO-CLOSE MOBILE MENU ON LINK CLICK
+    // Prevents the menu from staying open if a user clicks an anchor link
+    const links = document.querySelectorAll('.nav-link');
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
+                const icon = hamburger.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            }
+        });
+    });
+});
