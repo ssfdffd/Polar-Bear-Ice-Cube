@@ -1,5 +1,5 @@
 /* =========================================
-   1. VARIABLES & CORE RESET
+   1. CORE ABOUT PAGE STYLING
    ========================================= */
 :root {
     --primary-color: #007ACC;
@@ -12,71 +12,15 @@
     --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-* { 
-    box-sizing: border-box; 
-    margin: 0; 
-    padding: 0; 
-}
-
-html { 
-    scroll-behavior: smooth; 
-}
-
 body {
-    font-family: 'Poppins', sans-serif;
     background-color: var(--light-bg);
-    color: var(--text-color);
-    line-height: 1.6;
     overflow-x: hidden;
 }
 
 /* =========================================
-   2. NAVIGATION (Sticky & Mobile)
+   2. HERO SECTION
    ========================================= */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background-color: var(--primary-color);
-    z-index: 1000;
-    transition: var(--transition);
-}
-
-/* This class is toggled by your JS */
-.navbar.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgba(0, 122, 204, 0.9);
-    backdrop-filter: blur(10px); /* Frosted glass effect */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.logo-container { display: flex; align-items: center; }
-.logo-img { height: 45px; border-radius: 50%; margin-right: 12px; }
-.company-name { color: #fff; font-size: 1.4rem; font-weight: 700; }
-
-.nav-links { display: flex; list-style: none; gap: 20px; }
-.nav-link { 
-    color: #fff; 
-    font-weight: 600; 
-    transition: var(--transition);
-    padding: 5px 10px;
-}
-.nav-link:hover, .nav-link.active { color: var(--accent-color); }
-
-.hamburger { 
-    display: none; 
-    color: white; 
-    font-size: 1.5rem; 
-    cursor: pointer; 
-}
-
-/* =========================================
-   3. HERO SECTION
-   ========================================= */
-.hero-section {
+.about-hero {
     height: 60vh;
     background: url('front.jpg') center/cover no-repeat fixed;
     display: flex; 
@@ -90,7 +34,7 @@ body {
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
 }
 
 .hero-content { position: relative; z-index: 2; padding: 0 20px; }
@@ -98,7 +42,7 @@ body {
 .hero-subtitle { font-size: 1.2rem; opacity: 0.9; font-weight: 300; }
 
 /* =========================================
-   4. LAYOUT & CENTERED HEADERS
+   3. CENTERED HEADERS & LAYOUT
    ========================================= */
 .content-wrapper { 
     max-width: 1100px; 
@@ -106,27 +50,29 @@ body {
     padding: 60px 20px; 
 }
 
+/* Force Center the H2 Titles */
 .section-title {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     color: var(--primary-color);
-    margin-bottom: 50px;
+    margin: 40px 0 50px;
     position: relative;
+    width: 100%;
 }
 
-/* The modern underline indicator */
+/* Modern accent line under centered headers */
 .section-title::after {
     content: '';
     display: block;
     width: 70px;
     height: 4px;
     background: var(--accent-color);
-    margin: 10px auto 0;
-    border-radius: 2px;
+    margin: 12px auto 0;
+    border-radius: 10px;
 }
 
 /* =========================================
-   5. FOUNDER CARDS (Alternating Layout)
+   4. FOUNDER CARDS (Flex Layout)
    ========================================= */
 .founder-card {
     display: flex;
@@ -137,53 +83,41 @@ body {
     border-radius: 25px;
     margin-bottom: 40px;
     box-shadow: var(--shadow);
-    transition: var(--transition);
 }
 
-.founder-card:hover { transform: translateY(-5px); }
+/* This creates the alternating zigzag layout on desktop */
+.founder-card.right-align {
+    flex-direction: row-reverse;
+}
 
 .founder-img {
-    width: 320px;
+    width: 100%;
+    max-width: 320px;
     height: 320px;
     object-fit: cover;
     border-radius: 20px;
-    border: 5px solid #f0f4f8;
-    box-shadow: 15px 15px 0px var(--secondary-color); /* Artistic offset shadow */
+    border: 8px solid #f0f4f8;
+    box-shadow: 12px 12px 0px var(--secondary-color);
 }
 
 .founder-text { flex: 1; }
-.founder-name { font-size: 1.8rem; color: var(--primary-color); }
+.founder-name { font-size: 1.8rem; color: var(--primary-color); margin-bottom: 5px; }
 .founder-role { 
     font-weight: 600; 
     color: var(--secondary-color); 
     margin-bottom: 15px; 
     text-transform: uppercase;
-    letter-spacing: 1px;
     font-size: 0.9rem;
 }
 
 /* =========================================
-   6. ANIMATION STATES (Linked to your JS)
-   ========================================= */
-.reveal-left { opacity: 0; transform: translateX(-50px); }
-.reveal-right { opacity: 0; transform: translateX(50px); }
-.reveal-item { opacity: 0; transform: translateY(30px); }
-.reveal-element { opacity: 0; }
-
-/* The class added by your JS IntersectionObserver */
-.revealed {
-    opacity: 1 !important;
-    transform: translate(0, 0) !important;
-    transition: all 0.8s ease-out;
-}
-
-/* =========================================
-   7. TIMELINE / JOURNEY SECTION
+   5. TIMELINE / JOURNEY SECTION
    ========================================= */
 .timeline-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
 }
 
 .timeline-item {
@@ -192,12 +126,15 @@ body {
     border-radius: 20px;
     text-align: center;
     box-shadow: var(--shadow);
-    border-top: 5px solid var(--primary-color);
+    border-bottom: 5px solid var(--primary-color);
+    transition: var(--transition);
 }
 
+.timeline-item:hover { transform: translateY(-10px); }
+
 .step-circle {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -205,65 +142,41 @@ body {
     justify-content: center;
     margin: 0 auto 20px;
     font-weight: 700;
+    font-size: 1.2rem;
 }
 
 /* =========================================
-   8. MOBILE RESPONSIVE FIXES
+   6. ANIMATION CLASSES (For Intersection Observer)
+   ========================================= */
+.reveal-left { opacity: 0; transform: translateX(-60px); }
+.reveal-right { opacity: 0; transform: translateX(60px); }
+.reveal-item { opacity: 0; transform: translateY(40px); }
+.reveal-element { opacity: 0; }
+
+/* This class is triggered by your JS */
+.revealed {
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+    transition: all 0.8s ease-out;
+}
+
+/* =========================================
+   7. MOBILE RESPONSIVE
    ========================================= */
 @media (max-width: 900px) {
-    .hamburger { display: block; }
-
-    .nav-links {
-        position: absolute;
-        top: 100%; left: 0; width: 100%;
-        background: var(--primary-color);
-        flex-direction: column;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease-in-out;
-    }
-
-    .nav-links.open { max-height: 400px; padding-bottom: 20px; }
-
-    .founder-card, .founder-card.right-align {
-        flex-direction: column !important;
+    .founder-card, 
+    .founder-card.right-align {
+        flex-direction: column !important; /* Forces stacking on mobile */
         text-align: center;
         padding: 30px 20px;
+        gap: 30px;
     }
 
     .founder-img {
-        width: 100%;
-        max-width: 280px;
-        height: 280px;
-        box-shadow: 10px 10px 0px var(--secondary-color);
+        max-width: 260px;
+        height: 260px;
+        box-shadow: 8px 8px 0px var(--secondary-color); /* Smaller shadow for mobile */
     }
 
-    .section-title { font-size: 2rem; }
+    .hero-section { height: 50vh; }
 }
-
-/* Back to Top Button UI */
-#backToTop {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: var(--accent-color);
-    color: var(--primary-color);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    z-index: 2000;
-    transition: var(--transition);
-}
-
-#backToTop:hover {
-    transform: scale(1.1);
-    background: white;
-}
-
-
-
