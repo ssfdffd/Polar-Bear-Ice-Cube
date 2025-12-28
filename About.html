@@ -1,137 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Polar Bear Ice Cube</title>
-    <link rel="stylesheet" href="about.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Polar Bear Ice Cube</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="about.css" />
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
 
+<!-- ================= HEADER / NAVBAR ================= -->
 <header class="main-header">
-    <nav class="navbar" id="main-navbar">
-        <div class="logo-container">
-            <img src="ice.jpg" alt="Polar Bear Ice Cube Logo" class="logo-img">
-            <a href="index.html"><h1 class="company-name">Polar Bear Ice Cube</h1></a>
-        </div>
+  <nav class="navbar" id="main-navbar">
 
-        <div class="hamburger" id="hamburger">
-            <i class="fas fa-bars"></i>
-        </div>
+    <div class="logo-container">
+      <img src="ice.jpg" alt="Polar Bear Ice Cube Logo" class="logo-img" />
+      <a href="index.html">
+        <h1 class="company-name">Polar Bear Ice Cube</h1>
+      </a>
+    </div>
 
-        <ul class="nav-links" id="nav-links">
-            <li><a href="offer.html" class="nav-link">What we offer</a></li>
-            <li><a href="About.html" class="nav-link active">About Us</a></li>
-            <li><a href="uses.html" class="nav-link">Uses</a></li>
-        </ul>
+    <div class="hamburger" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
 
-        <div class="search-and-motto">
-            <p class="motto">Chill, Relax With The Bear</p>
-        </div>
-    </nav>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="offer.html" class="nav-link">What We Offer</a></li>
+      <li><a href="about.html" class="nav-link active">About Us</a></li>
+      <li><a href="uses.html" class="nav-link">Uses</a></li>
+    </ul>
+
+    <div class="search-and-motto">
+      <p class="motto">Chill, Relax With The Bear</p>
+    </div>
+
+  </nav>
 </header>
 
+<!-- ================= HERO SECTION ================= -->
 <section class="hero-section about-hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <h2 class="hero-title reveal-element">Our Journey to Pure Ice</h2>
-        <p class="hero-subtitle reveal-element">Discover the vision behind every cube.</p>
-    </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h2 class="hero-title animate-up delay-1">Our Journey to Pure Ice</h2>
+    <p class="hero-subtitle animate-up delay-2">
+      Discover the vision behind every crystal-clear cube.
+    </p>
+  </div>
 </section>
 
+<!-- ================= MAIN CONTENT ================= -->
 <main class="content-wrapper">
-    <section class="founder-section">
-        <h2 class="section-title reveal-element">The Hearts Behind the Ice</h2>
-        
-        <div class="founder-card reveal-element">
-            <div class="founder-image-container reveal-left">
-                <img src="founder1.jpeg" alt="Sipho Manyike" class="founder-img">
-                <div class="image-accent"></div>
-            </div>
-            <div class="founder-text reveal-right">
-                <span class="founder-tag">Founder</span>
-                <h3 class="founder-name">Sipho Manyike</h3>
-                <p class="founder-role">Visionary & Ice Master</p>
-                <p class="founder-bio">Driven by a commitment to purity, Sipho revolutionized local ice production with a focus on crystal-clear results.</p>
-            </div>
+
+  <!-- ===== FOUNDERS SECTION ===== -->
+  <section class="founder-section reveal-element">
+
+    <div class="section-header">
+      <h2 class="section-title">Meet the Founders</h2>
+      <p class="section-subtitle">The people behind the purity</p>
+    </div>
+
+    <!-- Founder 1 -->
+    <div class="founder-card left-align">
+      <div class="founder-text reveal-left">
+        <h3 class="founder-name">Sipho Manyike</h3>
+        <span class="founder-role">Founder · Ice Master</span>
+        <p class="founder-bio">
+          The original Polar Bear Ice Cube concept was born from Sipho’s passion
+          for precision, purity, and delivering premium ice you can trust.
+        </p>
+      </div>
+
+      <img
+        src="founder1.jpeg"
+        alt="Sipho Manyike"
+        class="founder-img reveal-right"
+      />
+    </div>
+
+    <!-- Founder 2 -->
+    <div class="founder-card right-align">
+      <img
+        src="founder2.jpeg"
+        alt="Buhle Manyike"
+        class="founder-img reveal-left"
+      />
+
+      <div class="founder-text reveal-right">
+        <h3 class="founder-name">Buhle Manyike</h3>
+        <span class="founder-role">Co-Founder · Customer Experience</span>
+        <p class="founder-bio">
+          Buhle ensures every customer interaction is smooth, reliable,
+          and refreshingly cool from first contact to final delivery.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== ICE JOURNEY / TIMELINE ===== -->
+  <section class="quality-section">
+
+    <div class="section-header">
+      <h2 class="section-title">The Ice Cube Journey</h2>
+      <p class="section-subtitle">From water to crystal-clear perfection</p>
+    </div>
+
+    <div class="timeline-container">
+
+      <div class="timeline-item reveal-item">
+        <div class="step-circle">1</div>
+        <div class="timeline-content">
+          <h3 class="step-title">Pure Water Source</h3>
+          <p class="step-description">
+            Carefully filtered water forms the foundation of our premium ice.
+          </p>
         </div>
+      </div>
 
-        <div class="founder-card right-align reveal-element">
-            <div class="founder-image-container reveal-right">
-                <img src="founder2.jpeg" alt="Buhle Manyike" class="founder-img">
-                <div class="image-accent"></div>
-            </div>
-            <div class="founder-text reveal-left">
-                <span class="founder-tag">Co-Founder</span>
-                <h3 class="founder-name">Buhle Manyike</h3>
-                <p class="founder-role">Head of Customer Experience</p>
-                <p class="founder-bio">Buhle ensures every interaction is cool and professional, keeping our promise of reliability to every customer.</p>
-            </div>
+      <div class="timeline-item reveal-item">
+        <div class="step-circle step-secondary">2</div>
+        <div class="timeline-content">
+          <h3 class="step-title">Advanced Freezing</h3>
+          <p class="step-description">
+            Controlled slow freezing removes air bubbles and impurities.
+          </p>
         </div>
-    </section>
+      </div>
 
-    <section class="quality-section">
-        <h2 class="section-title reveal-element">Our 3-Step Purity Process</h2>
-        
-        
-        
-        <div class="journey-grid">
-            <div class="journey-card reveal-item">
-                <div class="journey-icon">
-                    <i class="fas fa-filter"></i>
-                    <span class="step-number">01</span>
-                </div>
-                <h3>Advanced Filtration</h3>
-                <p>Multi-stage reverse osmosis removes 99.9% of impurities for a pure start.</p>
-            </div>
-
-            <div class="journey-card reveal-item">
-                <div class="journey-icon">
-                    <i class="fas fa-snowflake"></i>
-                    <span class="step-number">02</span>
-                </div>
-                <h3>Crystal-Clear Freezing</h3>
-                <p>Directional freezing technology eliminates air for slow-melting ice.</p>
-            </div>
-
-            <div class="journey-card reveal-item">
-                <div class="journey-icon">
-                    <i class="fas fa-shield-alt"></i>
-                    <span class="step-number">03</span>
-                </div>
-                <h3>Hygienic Sealing</h3>
-                <p>Touch-free, double-sealed packaging ensures maximum safety and freshness.</p>
-            </div>
+      <div class="timeline-item reveal-item">
+        <div class="step-circle step-accent">3</div>
+        <div class="timeline-content">
+          <h3 class="step-title">Hygienic Sealing</h3>
+          <p class="step-description">
+            Double-sealed packaging ensures freshness, hygiene, and safety.
+          </p>
         </div>
-    </section>
+      </div>
+
+    </div>
+  </section>
+
 </main>
 
+<!-- ================= FOOTER ================= -->
 <footer class="main-footer">
-    <div class="footer-content-wrapper">
-        <div class="contact-info">
-            <h3>Contact Us</h3>
-            <ul class="contact-list">
-                <li><i class="fas fa-map-marker-alt"></i> 1587 Mahlobo Street, Soweto</li>
-                <li><a href="https://wa.me/27688028189" style="color:white; text-decoration:none;"><i class="fas fa-phone"></i> 068 802 8189</a></li>
-                <li><a href="mailto:pbearicecube@gmail.com" style="color:white; text-decoration:none;"><i class="fas fa-envelope"></i> pbearicecube@gmail.com</a></li>
-            </ul>
-        </div>
-        <div class="social-media-links">
-            <h3>Follow Us</h3>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-            </div>
-        </div>
+
+  <div class="footer-content-wrapper">
+
+    <div class="contact-info">
+      <h3>Contact Us</h3>
+      <ul class="contact-list">
+        <li>
+          <i class="fas fa-map-marker-alt"></i>
+          1587 Mahlobo Street, Mofolo North, Soweto
+        </li>
+        <li>
+          <a href="https://wa.me/27688028189">
+            <i class="fas fa-phone"></i> 068 802 8189
+          </a>
+        </li>
+        <li>
+          <a href="mailto:pbearicecube@gmail.com">
+            <i class="fas fa-envelope"></i> pbearicecube@gmail.com
+          </a>
+        </li>
+      </ul>
     </div>
-    <p class="copyright">&copy; 2025 Polar Bear Ice Cube. All rights reserved.</p>
+
+    <div class="social-media-links">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61584007087756" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/polarbear_icecube/" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@polar_bear_ice_cube" target="_blank">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="copyright">
+    &copy; 2025 Polar Bear Ice Cube. All rights reserved.
+  </p>
+
 </footer>
 
-<button id="backToTop"><i class="fas fa-arrow-up"></i></button>
+<!-- Back to Top -->
+<button id="backToTop" title="Go to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
 
+<!-- JS -->
 <script src="about.js"></script>
+
 </body>
 </html>
